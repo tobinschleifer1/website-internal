@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover New Zealand</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #002147;
+            color: white;
+            text-align: center;
+        }
+        header, footer {
+            background-color: rgba(0, 26, 62, 0.6); /* Semi-transparent header */
+            padding: 20px;
+            color: #FFFFFF;
+            transition: background-color 0.3s ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+        .header-image {
+            width: 100%;
+            height: 900px;
+            background: url('https://lh5.googleusercontent.com/p/AF1QipPjeYDUrOebyLPuuVr__KGF-7Lki2D984WLahcY=w1080-h624-n-k-no') no-repeat center center/cover;
+            position: relative;
+            z-index: 1;
+        }
+        .header-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5em;
+            font-weight: bold;
+            line-height: 1.2;
+            z-index: 2;
+        }
+        .header-text h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 100px;
+            gap: 20px;
+        }
+        .box {
+            flex: 1;
+            background-color: #1A2B4C;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            height: 250px;
+            margin-bottom: 10px;
+        }
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .description {
+            background-color: #001A3E;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+        }
+        .box:hover {
+            transform: scale(1.05);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header id="main-header">
+        <h2>Welcome to Discover New Zealand</h2>
+    </header>
+
+    <div class="header-image">
+        <div class="header-text">
+            <h1>KIA ORA</h1>
+            <p>DISCOVER NEW ZEALAND</p>
+        </div>
+    </div>
+
+    <!-- Clickable Image Holders Section -->
+    <div class="box-container">
+        <a href="http://example1.com">
+            <div class="box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZP_KI0NNZoRqI1yJUO0pG72QHVqHP7h1wHg&s" alt="Explore">
+            </div>
+            <div class="description">Learn about Anzac day and its importance to New Zealand</div>
+        </a>
+        <a href="http://example2.com">
+            <div class="box">
+                <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQoT0K44b8cJOgobBQl-5ZLSiZ71tlC5GM_8q4ZA8833AH1zMoRx_vFQWlcxrFTsgMdJl-HnwYPeJydXxWTG9c_nlYq0hSP-LL13UY1Ng" alt="Live and Work">
+            </div>
+            <div class="description">Learn about the Abel Tasman National Park</div>
+        </a>
+        <a href="http://example3.com">
+            <div class="box">
+                <img src="https://www.allianz-assistance.co.za/blogs/23-Popular-Tourist-Attractions-in-New-Zealand/_jcr_content/root/stage/stageimage.img.png/1686811554933/nz-v9.png" alt="Study">
+            </div>
+            <div class="description">Explore Milford Sound and its beautiful scenery</div>
+        </a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        Tobins website inc &copy; 2024
+    </footer>
+
+    <script>
+        // JavaScript to manage header transparency and opacity
+        const header = document.getElementById('main-header');
+
+        header.addEventListener('click', function() {
+            this.style.backgroundColor = 'rgba(0, 26, 62, 1)'; // Fully opaque on click
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!header.contains(event.target)) {
+                header.style.backgroundColor = 'rgba(0, 26, 62, 0.6)'; // Back to transparent when clicking outside
+            }
+        });
+    </script>
+
+</body>
+</html>
