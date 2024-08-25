@@ -5,27 +5,85 @@ body {
     background-color: #002147;
     color: white;
     text-align: center;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+
 header {
-    background-color: rgba(0, 26, 62, 0.6);
-    padding: 20px;
+    background-color: rgba(0, 26, 62, 0.05); /* Very transparent by default */
+    padding: 30px; /* Larger header */
     color: #FFFFFF;
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     transition: background-color 0.3s ease-in-out;
 }
+
 header:hover {
-    background-color: rgba(0, 26, 62, 1);
+    background-color: rgba(0, 26, 62, 0.75); /* More opaque on hover */
 }
+
+.burger-menu {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+.burger-menu span {
+    width: 30px;
+    height: 3px;
+    background-color: #FFFFFF;
+}
+
+.burger-nav {
+    display: none;
+    position: absolute;
+    top: 100%; /* Below the header */
+    left: 0;
+    background-color: rgba(0, 26, 62, 0.75); /* More opaque when the menu is open */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 3; /* Ensure it appears above other content */
+}
+
+.burger-nav.open {
+    display: block;
+}
+
+.burger-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.burger-nav ul li {
+    margin: 10px 0;
+}
+
+.burger-nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-title {
+    margin: 0 auto;
+    font-size: 1.5em;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .header-image {
     width: 100%;
     height: 900px;
     background: url('https://lh5.googleusercontent.com/p/AF1QipPjeYDUrOebyLPuuVr__KGF-7Lki2D984WLahcY=w1080-h624-n-k-no') no-repeat center center/cover;
     position: relative;
 }
+
 .header-text {
     position: absolute;
     top: 50%;
@@ -36,10 +94,12 @@ header:hover {
     line-height: 1.2;
     z-index: 2;
 }
+
 .header-text h1 {
     margin: 0;
     font-size: 3em;
 }
+
 .box-container {
     display: flex;
     justify-content: space-between;
@@ -47,6 +107,7 @@ header:hover {
     padding: 40px 100px;
     gap: 20px;
 }
+
 .box {
     flex: 1;
     background-color: #1A2B4C;
@@ -57,29 +118,31 @@ header:hover {
     height: 250px;
     margin-bottom: 10px;
 }
+
 .box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .description {
     background-color: #001A3E;
     padding: 10px;
     border-radius: 5px;
     color: white;
 }
+
 .box:hover {
     transform: scale(1.05);
 }
+
 a {
     text-decoration: none;
     color: inherit;
 }
-.content {
-    padding: 40px;
-}
+
 footer {
-    padding: 20px;
     background-color: #001A3E;
+    padding: 20px;
     color: #FFFFFF;
 }
