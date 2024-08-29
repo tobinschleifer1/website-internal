@@ -213,6 +213,46 @@ footer {
     width: 80%; /* Decreased width */
     height: auto;
 }
+.map-container {
+    position: relative;
+    width: 50%;
+    margin: auto;
+}
+
+.nz-map {
+    width: 100%;
+    height: auto;
+}
+
+.map-point {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.map-point .tooltip {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the point */
+    left: 50%;
+    margin-left: -50px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.map-point:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
 
 .centered-text-box {
     background-color: rgba(0, 26, 62, 0.75);

@@ -11,4 +11,25 @@ document.addEventListener('DOMContentLoaded', function () {
             burgerNav.classList.remove('open');
         }
     });
+
+    // Map Interaction Script
+    const mapPoints = document.querySelectorAll('.map-point');
+    const infoBox = document.getElementById('info-box');
+    const infoText = document.getElementById('info-text');
+
+    mapPoints.forEach(point => {
+        point.addEventListener('click', function () {
+            const info = point.getAttribute('data-info');
+            infoText.textContent = info;
+            infoBox.style.display = 'block';
+            infoBox.style.top = point.offsetTop + 'px';
+            infoBox.style.left = point.offsetLeft + 'px';
+        });
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!event.target.classList.contains('map-point')) {
+            infoBox.style.display = 'none';
+        }
+    });
 });

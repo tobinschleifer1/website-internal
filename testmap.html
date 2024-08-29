@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map of New Zealand</title>
+    <link rel="stylesheet" href="testmapcss.css">
+</head>
+<body>
+    <div class="map-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Map_of_New_Zealand_%28blank%29.svg/1311px-Map_of_New_Zealand_%28blank%29.svg.png" alt="Map of New Zealand" class="map-image">
+        <div class="map-point" data-info="info1" style="top: 52%; left: 51%;"></div> <!-- Wellington -->
+        <div class="map-point" data-info="info2" style="top: 45%; left: 75%;"></div> <!-- Auckland -->
+        <div class="map-point" data-info="info3" style="top: 55%; left: 50%;"></div> <!-- Christchurch -->
+        <div class="map-point" data-info="info4" style="top: 75%; left: 30%;"></div> <!-- Dunedin -->
+        <div class="map-point" data-info="info5" style="top: 40%; left: 60%;"></div> <!-- Hamilton -->
+    </div>
+    <div class="info-box" id="info-box">
+        <div class="info-content">
+            <img src="" alt="" id="info-img">
+            <p id="info-text"></p>
+        </div>
+    </div>
+    <script src="testmapjs.js"></script>
+</body>
+</html>
