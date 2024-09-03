@@ -213,47 +213,76 @@ footer {
     width: 80%; /* Decreased width */
     height: auto;
 }
+
+/* Map Styles */
 .map-container {
     position: relative;
-    width: 50%;
+    width: 70%; /* Adjusted for consistency */
     margin: auto;
 }
 
-.nz-map {
+.nz-map,
+.map-image {
     width: 100%;
     height: auto;
+    display: block;
 }
 
 .map-point {
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 20px; /* Unified size */
+    height: 20px;
     background-color: red;
     border-radius: 50%;
     cursor: pointer;
 }
 
-.map-point .tooltip {
+.map-point .tooltip,
+.info-box {
     visibility: hidden;
-    background-color: black;
-    color: #fff;
-    text-align: center;
+    background-color: white; /* Changed background color to white */
+    color: black;
+    text-align: left;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
     position: absolute;
     z-index: 1;
-    bottom: 125%; /* Position above the point */
-    left: 50%;
-    margin-left: -50px;
+    left: 25px; /* Position to the right of the point */
+    top: -25px;
+    width: 300px; /* Fixed width for the info box */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, transform 0.3s ease-in-out;
 }
 
-.map-point:hover .tooltip {
+.map-point .info-box img {
+    width: 100%;
+    height: auto;
+    max-height: 100px; /* Adjust as needed */
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.map-point:hover .tooltip,
+.map-point:hover .info-box {
     visibility: visible;
     opacity: 1;
+    transform: translateY(-10px); /* Add a slight lift effect on hover */
 }
 
+.info-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.info-box p {
+    margin: 0;
+    text-align: left;
+}
+
+/* Centered Text Box */
 .centered-text-box {
     background-color: rgba(0, 26, 62, 0.75);
     padding: 20px;

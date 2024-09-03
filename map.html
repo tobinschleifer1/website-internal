@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Map</title>
+    <title>Interactive Map of New Zealand</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
+    <!-- Header with Burger Menu -->
     <header>
         <div class="burger-menu">
             <span></span>
@@ -26,37 +29,61 @@
         </nav>
     </header>
 
+    <!-- Main Content -->
     <div class="content">
         <h1>Explore New Zealand</h1>
         <p>Use the interactive map below to discover more about New Zealand's iconic locations...</p>
-        
+
         <!-- Interactive Map Container -->
-        <div id="map-container">
-            <img src="data:image/png;base64,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" alt="Map of New Zealand" id="nz-map">
-            <div class="map-point" style="top: 40%; left: 50%;" data-info="This is Wellington, the capital of New Zealand."></div>
-            <div class="map-point" style="top: 30%; left: 60%;" data-info="This is Auckland, the largest city in New Zealand."></div>
-            <!-- Add more map points as needed -->
-        </div>
+        <div class="map-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Map_of_New_Zealand_%28blank%29.svg/1311px-Map_of_New_Zealand_%28blank%29.svg.png" alt="Map of New Zealand" class="map-image">
 
-        <!-- Info Box -->
-        <div id="info-box" class="hidden">
-            <p id="info-text"></p>
+            <!-- Map Points with Information -->
+            <div class="map-point" style="top: 52%; left: 51%;" data-location="wellington">
+                <div class="info-box">
+                    <div class="info-content">
+                        <img src="images/wellinton (2).jfif" alt="wellinton">
+                        <p><strong>Wellington</strong> - The capital city of New Zealand, known for its vibrant arts scene and waterfront promenade.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="map-point" style="top: 22%; left: 51%;" data-location="auckland">
+                <div class="info-box">
+                    <div class="info-content">
+                        <img src="images/auckland.jfif" alt="Auckland">
+                        <p><strong>Auckland</strong> - A bustling city surrounded by two harbours, offering stunning views and rich cultural experiences.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="map-point" style="top: 68%; left: 38.7%;" data-location="christchurch">
+                <div class="info-box">
+                    <div class="info-content">
+                        <img src="images/chircurch (2).jfif" alt="Christchurch">
+                        <p><strong>Christchurch</strong> - The Garden City of New Zealand, famous for its English heritage and beautiful parks.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="map-point" style="top: 82.5%; left: 26.5%;" data-location="dunedin">
+                <div class="info-box">
+                    <div class="info-content">
+                        <img src="images/dundiden(2).jfif" alt="Dunedin">
+                        <p><strong>Dunedin</strong> - Known for its Scottish heritage and Victorian architecture, this city is rich in culture and history.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="map-point" style="top: 30%; left: 53%;" data-location="hamilton">
+                <div class="info-box">
+                    <div class="info-content">
+                        <img src="images/hamilton(2).jfif" alt="Hamilton">
+                        <p><strong>Hamilton</strong> - A city set on the banks of the Waikato River, known for its beautiful gardens and vibrant community.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="map-container">
-        <img src="new-zealand-map.png" alt="New Zealand Map" class="nz-map">
-        <div class="map-point" style="top: 40%; left: 60%;" title="Wellington">
-            <span class="tooltip">Wellington</span>
-        </div>
-        <div class="map-point" style="top: 30%; left: 50%;" title="Auckland">
-            <span class="tooltip">Auckland</span>
-        </div>
-    </div>
-    
-    <footer>
-        Tobins website inc &copy; 2024
-    </footer>
 
+    <!-- External JavaScript -->
     <script src="scripts.js"></script>
 </body>
+
 </html>

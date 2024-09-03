@@ -15,15 +15,52 @@ document.addEventListener('DOMContentLoaded', function () {
     // Map Interaction Script
     const mapPoints = document.querySelectorAll('.map-point');
     const infoBox = document.getElementById('info-box');
+    const infoImg = document.getElementById('info-img');
     const infoText = document.getElementById('info-text');
 
+    const infoData = {
+        'info1': {
+            text: 'Wellington, the capital city of New Zealand, is known for its vibrant arts scene and stunning harbor views.'
+        },
+        'info2': {
+            text: 'Auckland is New Zealand\'s largest city, famous for its iconic Sky Tower and diverse culture.'
+        },
+        'info3': {
+            text: 'Christchurch, known as the "Garden City," features beautiful parks and is recovering and rebuilding from the 2011 earthquake.'
+        },
+        'info4': {
+            img: 'https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcTK_OI7HoPZ3gn-YpkYA5pDH9rTJPypk6_fygsZV8dn1WaR704oMqwhs39VrCLzyhQVW_NKm4jNttMhUBGnCKn5nmc-aPaXAvRRbEflWg',
+            text: 'Dunedin is known for its Scottish heritage and is a gateway to the Otago Peninsula and its wildlife.'
+        },
+        'info5': {
+            text: 'Hamilton is known for its beautiful gardens and is located near the Hobbiton movie set.'
+        }
+        // Add more points as needed
+    };
+
     mapPoints.forEach(point => {
-        point.addEventListener('click', function () {
-            const info = point.getAttribute('data-info');
-            infoText.textContent = info;
+        point.addEventListener('mouseover', () => {
+            const infoId = point.getAttribute('data-info');
+            const data = infoData[infoId];
+
+            if (data.img) {
+                infoImg.src = data.img;
+                infoImg.style.display = 'block';
+            } else {
+                infoImg.style.display = 'none';
+            }
+            
+            infoText.textContent = data.text;
+
+            // Set position of the info box
+            const rect = point.getBoundingClientRect();
+            infoBox.style.top = `${rect.top + window.scrollY + 30}px`;
+            infoBox.style.left = `${rect.left + window.scrollX}px`;
             infoBox.style.display = 'block';
-            infoBox.style.top = point.offsetTop + 'px';
-            infoBox.style.left = point.offsetLeft + 'px';
+        });
+
+        point.addEventListener('mouseout', () => {
+            infoBox.style.display = 'none';
         });
     });
 

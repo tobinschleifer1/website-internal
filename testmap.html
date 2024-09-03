@@ -1,26 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Map of New Zealand</title>
-    <link rel="stylesheet" href="testmapcss.css">
-</head>
-<body>
-    <div class="map-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Map_of_New_Zealand_%28blank%29.svg/1311px-Map_of_New_Zealand_%28blank%29.svg.png" alt="Map of New Zealand" class="map-image">
-        <div class="map-point" data-info="info1" style="top: 52%; left: 51%;"></div> <!-- Wellington -->
-        <div class="map-point" data-info="info2" style="top: 45%; left: 75%;"></div> <!-- Auckland -->
-        <div class="map-point" data-info="info3" style="top: 55%; left: 50%;"></div> <!-- Christchurch -->
-        <div class="map-point" data-info="info4" style="top: 75%; left: 30%;"></div> <!-- Dunedin -->
-        <div class="map-point" data-info="info5" style="top: 40%; left: 60%;"></div> <!-- Hamilton -->
-    </div>
-    <div class="info-box" id="info-box">
-        <div class="info-content">
-            <img src="" alt="" id="info-img">
-            <p id="info-text"></p>
-        </div>
-    </div>
-    <script src="testmapjs.js"></script>
-</body>
-</html>
+document.addEventListener('DOMContentLoaded', function () {
+    const burgerMenu = document.querySelector('.burger-menu');
+    const burgerNav = document.querySelector('.burger-nav');
+
+    burgerMenu.addEventListener('click', function () {
+        burgerNav.classList.toggle('open');
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!burgerMenu.contains(event.target) && !burgerNav.contains(event.target)) {
+            burgerNav.classList.remove('open');
+        }
+    });
+
+    // Map Interaction Script
+    const mapPoints = document.querySelectorAll('.map-point');
+    const infoBox = document.getElementById('info-box');
+    const infoImg = document.getElementById('info-img');
+    const infoText = document.getElementById('info-text');
+
+    const infoData = {
+        'info1': {
+            text: 'Wellington, the capital city of New Zealand, is known for its vibrant arts scene and stunning harbor views.'
+        },
+        'info2': {
+            text: 'Auckland is New Zealand\'s largest city, famous for its iconic Sky Tower and diverse culture.'
+        },
+        'info3': {
+            text: 'Christchurch, known as the "Garden City," features beautiful parks and is recovering and rebuilding from the 2011 earthquake.'
+        },
+        'info4': {
+            img: 'https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcTK_OI7HoPZ3gn-YpkYA5pDH9rTJPypk6_fygsZV8dn1WaR704oMqwhs39VrCLzyhQVW_NKm4jNttMhUBGnCKn5nmc-aPaXAvRRbEflWg',
+            text: 'Dunedin is known for its Scottish heritage and is a gateway to the Otago Peninsula and its wildlife.'
+        },
+        'info5': {
+            text: 'Hamilton is known for its beautiful gardens and is located near the Hobbiton movie set.'
+        }
+        // Add more points as needed
+    };
+
+    mapPoints.forEach(point => {
+        point.addEventListener('mouseover', () => {
+            const infoId = point.getAttribute('data-info');
+            const data = infoData[infoId];
+
+            if (data.img) {
+                infoImg.src = data.img;
+                infoImg.style.display = 'block';
+            } else {
+                infoImg.style.display = 'none';
+            }
+
+            infoText.textContent = data.text;
+
+            // Set position of the info box
+            const rect = point.getBoundingClientRect();
+            infoBox.style.top = `${rect.top + window.scrollY + 30}px`;
+            infoBox.style.left = `${rect.left + window.scrollX + 30}px`;
+            infoBox.style.display = 'block';
+        });
+
+        point.addEventListener('mouseout', () => {
+            infoBox.style.display = 'none';
+        });
+    });
+});
