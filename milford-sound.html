@@ -8,18 +8,42 @@
 </head>
 <body>
 
+    <!-- Header Section -->
     <header>
-        <h2>Milford Sound</h2>
+        <div class="burger-menu" onclick="toggleBurgerMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h2 class="header-title">Discover New Zealand</h2>
+        <nav class="burger-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Anzac Day</a></li>
+                <li><a href="abel-tasman.html">Abel Tasman</a></li>
+                <li><a href="milford-sound.html">Milford Sound</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+        </nav>
     </header>
 
+    <!-- Milford Sound Content -->
     <div class="content">
         <h1>Discover Milford Sound</h1>
         <p>Milford Sound, located in the southwest of New Zealand's South Island, is known for towering Mitre Peak, rainforests, and waterfalls like Stirling and Bowen falls...</p>
     </div>
 
+    <!-- Footer Section -->
     <footer>
         Tobins website inc &copy; 2024
     </footer>
+
+    <script>
+        function toggleBurgerMenu() {
+            const menu = document.querySelector('.burger-nav');
+            menu.classList.toggle('open');
+        }
+    </script>
 
 </body>
 </html>
