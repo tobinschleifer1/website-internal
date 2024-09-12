@@ -3,23 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abel Tasman National Park</title>
+    <title>Abel tasman</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styling for the image container */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between images */
+            padding: 20px;
+        }
+
+        /* Styling for the images */
+        .image-container img {
+            max-width: 100%;
+            width: 625px; /* Sets a fixed width for consistent sizing */
+            height: 450px; /* Adjusts the height to match */
+            object-fit: cover; /* Ensures images are cropped properly to fit the box */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling for centered text box */
+        .centered-text-box {
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Header Section -->
     <header>
-        <h2>Abel Tasman National Park</h2>
+        <div class="burger-menu" onclick="toggleBurgerMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h2 class="header-title">Discover New Zealand</h2>
+        <nav class="burger-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Anzac Day</a></li>
+                <li><a href="abel-tasman.html">Abel Tasman</a></li>
+                <li><a href="milford-sound.html">Milford Sound</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="content">
-        <h1>Explore Abel Tasman National Park</h1>
-        <p>Abel Tasman National Park is renowned for its golden beaches, sculptured granite cliffs, and its world-famous coastal track...</p>
+    <!-- Images Section -->
+    <div class="image-container">
+        <img src="images/abel tasman national park 2.jpg" alt="Image 1">
+        <img src="images/abel tasman 1.jpg.webp" alt="Image 2">
     </div>
 
+    <!-- Centered Text Box -->
+    <div class="centered-text-box">
+        <p>Abel Tasman National Park, located at the northern tip of New Zealand's South Island, is renowned for its golden beaches, lush forests, and crystal-clear waters. Spanning over 22,000 hectares, it offers visitors a chance to explore scenic coastal tracks, kayak along the serene bays, and encounter diverse wildlife, including fur seals, dolphins, and native birds. The park's mild climate makes it an ideal destination year-round, whether you're hiking the famous Abel Tasman Coast Track or simply enjoying the tranquil beauty of its secluded coves. Rich in natural beauty and cultural history, Abel Tasman is a must-visit destination for nature lovers and adventurers alike.</p>
+    </div>
+
+    <!-- Footer Section -->
     <footer>
         Tobins website inc &copy; 2024
     </footer>
 
+    <script>
+        function toggleBurgerMenu() {
+            const menu = document.querySelector('.burger-nav');
+            menu.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
