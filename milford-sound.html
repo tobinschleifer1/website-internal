@@ -6,6 +6,24 @@
     <title>Anzac Day</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Centering the entire page content */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto; /* Centers the content on the page */
+            padding: 20px;
+            min-height: 100vh; /* Ensures content takes up full height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Space between content and footer */
+        }
+
         /* Styling for the image container */
         .image-container {
             display: flex;
@@ -17,9 +35,9 @@
         /* Styling for the images */
         .image-container img {
             max-width: 100%;
-            width: 625px; /* Sets a fixed width for consistent sizing */
-            height: 450px; /* Adjusts the height to match */
-            object-fit: cover; /* Ensures images are cropped properly to fit the box */
+            width: 625px; /* Fixed width for consistent sizing */
+            height: 450px; /* Fixed height */
+            object-fit: cover; /* Ensures images are cropped properly */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -29,12 +47,48 @@
             text-align: center;
             padding: 20px;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 20px auto 40px; /* Adds space between images and footer */
+            background-color: rgba(0, 0, 0, 0.1); /* Light background behind text */
+            border-radius: 8px;
+            color: white;
+        }
+
+        /* Styling for the header and footer */
+        header {
+            background-color: #0a1f44; /* Dark background color for the header */
+            padding: 30px;
+            color: white;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px; /* Increased padding for larger footer */
+            background-color: #0a1f44; /* Same background color as the header */
+            color: white; /* Footer text color */
+        }
+
+        /* Styling the burger menu */
+        .burger-menu span {
+            background-color: white; /* Match burger menu color to the header */
+        }
+
+        /* Flexbox layout to push footer to the bottom */
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
         }
     </style>
 </head>
 <body>
-
     <!-- Header Section -->
     <header>
         <div class="burger-menu" onclick="toggleBurgerMenu()">
